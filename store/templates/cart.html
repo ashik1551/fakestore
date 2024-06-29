@@ -1,0 +1,42 @@
+{%extends 'base1.html'%}
+{%load static%}
+{%block title%}
+<title>Cart</title>
+{%endblock title%}
+{%block content%}
+<h1 class="text-center my-3">Cart</h1>
+{%for i in data%}
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4 col-lg-4 col-sm-4">
+            <img src="{{i.cart_product.product_image.url}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8 col-lg-8 col-sm-4">
+            <div class="card-body">
+                <h5 class="card-title">{{i.cart_product.product_name}}</h5>
+                <p class="card-text"><small class="text-body-secondary">{{i.cart_product.product_category}}</small></p>
+                <p class="card-text">{{i.cart_product.product_description}}</p>
+
+                <p class="card-text">Quantity : <button class="btn btn-outline-dark">-</button>
+                    {{i.cart_quantity}} <button class="btn btn-outline-dark">+</button>
+                </p>
+                <p class="card-text"><small class="text-body-dark fs-5">Price :
+                        ₹{{i.cart_product.product_price}}/-</small>
+                <p class="card-text"><a href="{% url 'cart_delete' i.id%}"><button class="btn btn-outline-danger">Remove</button></a>
+                    <a href="{% url 'ordernow' i.id%}"><button class="btn btn-outline-success">Buy Now</button></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{%if data%}
+<div>
+    <p class="fs-5">Total price : ₹{{price}}/-</p>
+</div>
+<div class="text-center">
+    <a href="{%url 'order' %}"><button class="btn btn-outline-success btn-lg">Place Order</button></a>
+</div>
+{%else%}
+<h6 class="text-center my-5">Empty</h6>
+{%endif%}
+{%endblock content%}

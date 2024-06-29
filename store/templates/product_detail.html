@@ -1,0 +1,25 @@
+{%extends 'base1.html'%}
+{%load static%}
+{%block title%}
+<title>Products</title>
+{%endblock title%}
+{%block content%}
+<div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-4 col-lg-4 col-sm-4">
+        <img src="{{data.product_image.url}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8 col-lg-8 col-sm-4">
+        <div class="card-body">
+          <h5 class="card-title">{{data.product_name}}</h5>
+          <p class="card-text"><small class="text-body-secondary">{{data.product_category}}</small></p>
+          <p class="card-text">{{data.product_description}}</p>
+          <p class="card-text"><small class="text-body-secondary fs-5">Price : ₹{{data.product_price}}/-</small></p>
+          <p><a href="{%url 'addtocart' data.id%}"><button class="btn btn-outline-warning me-3">Add to cart</button></a> 
+            <a href="{%url 'buynow' data.id%}"><button class="btn btn-outline-success me-3">Buy now</button></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endblock content%}

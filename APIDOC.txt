@@ -1,0 +1,241 @@
+
+1)api for fetching token
+
+    url: http://127.0.0.1:8000/api/token/
+
+    method:POST
+
+    body:{username,password}
+
+    authentication:Nill
+
+=====================================end Token===========================================
+
+schema:User
+attributes:{
+    username,
+    first_name,
+    last_name,
+    email,
+    password,
+}
+
+2)API for user registration
+
+    method:POST
+
+    url:http://127.0.0.1:8000/api/signup/
+
+    body:{
+        username,
+        password
+    }
+
+    authentication:Nill
+
+=====================================end User===========================================
+
+
+schema:Categorymodel
+attributes:{
+    category_name,
+    category_image
+}
+
+3)API for add category:
+
+    method:POST
+
+    url:http://127.0.0.1:8000/api/category/
+
+    body:{
+        category_name,
+        category_image
+    }
+
+    authentication:Token
+
+
+4)API for list category:
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/category/
+
+    body:Nill
+
+    authentication:Token
+
+
+5)API for view category:
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/category/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+
+6)API for update category:
+
+    method:PUT
+
+    url:http://127.0.0.1:8000/api/category/{id}/
+
+    body:{
+        category_name,
+        category_image
+    }
+
+    authentication:Token
+
+
+7)API for delete category:
+
+    method:DELETE
+
+    url:http://127.0.0.1:8000/api/category/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+===================================end Categorymodel=============================================
+
+schema:Productmodel
+attributes:{
+    product_name,
+    product_image,
+    product_description,
+    product_price,
+    product_stock,
+    product_category
+}
+
+8)API for Product listing
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/product/
+
+    body:Nill
+
+    authentication:Token
+
+9)API for retrive Product 
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/product/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+10)API for add Product 
+
+    method:POST
+
+    url:http://127.0.0.1:8000/api/product/
+
+    body:{
+    product_name,
+    product_image,
+    product_description,
+    product_price,
+    product_stock,
+    product_category
+    }
+
+    authentication:Token
+
+11)API for update Product 
+
+    method:PUT
+
+    url:http://127.0.0.1:8000/api/product/{id}/
+
+    body:{
+    product_name,
+    product_image,
+    product_description,
+    product_price,
+    product_stock,
+    product_category
+    }
+
+    authentication:Token
+
+12)API for delete Product 
+
+    method:DELETE
+
+    url:http://127.0.0.1:8000/api/product/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+===================================end Productmodel=============================================
+
+schema Cartmodel
+attributes:{
+    cart_product,
+    cart_user,
+    cart_date,
+    cart_quantity
+}
+
+13)API for listing cart 
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/cart/
+
+    body:Nill
+
+    authentication:Token
+
+14)API for add to cart 
+
+    method:POST
+
+    url:http://127.0.0.1:8000/api/product/{id}/add_to_cart/
+
+    body:{cart_quantity}
+
+    authentication:Token
+
+15)API for retrieve a cart detail 
+
+    method:GET
+
+    url:http://127.0.0.1:8000/api/cart/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+16)API for update a cart item 
+
+    method:PUT
+
+    url:http://127.0.0.1:8000/api/cart/{id}/
+
+    body:{cart_quantity}
+
+    authentication:Token
+
+17)API for delte an item from cart
+
+    method:DELETE
+
+    url:http://127.0.0.1:8000/api/cart/{id}/
+
+    body:Nill
+
+    authentication:Token
+
+===================================end Cartmodel=============================================

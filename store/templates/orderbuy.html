@@ -1,0 +1,52 @@
+{%extends 'base1.html'%}
+{%load static%}
+{%block title%}
+<title>Order</title>
+{%endblock title%}
+{%block content%}
+<h1 class="text-center my-3">Place Order</h1>
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4 col-lg-4 col-sm-4">
+            <img src="{{data.product_image.url}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8 col-lg-8 col-sm-4">
+            <div class="card-body">
+                <h5 class="card-title">{{data.product_name}}</h5>
+                <p class="card-text"><small class="text-body-secondary">{{data.product_category}}</small></p>
+                <p class="card-text">{{data.product_description}}</p>
+
+                <p class="card-text">Quantity : <button class="btn btn-outline-dark">-</button>
+                    1 <button class="btn btn-outline-dark">+</button>
+                <p class="card-text"><small class="text-body-dark fs-5">Price :
+                        ₹{{data.product_price}}/-</small>
+            </div>
+        </div>
+    </div>
+</div>
+{%if data%}
+<div>
+    <h4>No of Items : {{count}}</h4>
+    <div class="card mb-3 p-3">
+        <div class="row g-0">
+            <div class="col-12">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-success btn-lg">Pay ₹{{price}}/-</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="col-md-8 col-lg-8 col-sm-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.cart_product.product_name}}</h5>
+                    <p class="card-text"><small class="text-body-secondary"></small></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+{%endif%}
+{%endblock content%}

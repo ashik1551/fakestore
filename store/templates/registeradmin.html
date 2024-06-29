@@ -1,0 +1,18 @@
+{%extends 'base1.html'%}
+{%load static%}
+{%block title%}
+<title>Admin</title>
+{%endblock title%}
+{%block content%}
+<br>
+<div class="col-lg-4 border-1 rounded shadow p-3" style="margin: auto;">
+<h1 class="text-center mb-3">Admin</h1>
+
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <div class="text-center">
+        <button type="submit" class="btn btn-success">Register</button></div>
+    </form>
+</div>
+{%endblock content%}
